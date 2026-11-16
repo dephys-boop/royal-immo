@@ -1,0 +1,6 @@
+{
+  "name": "ROYAL IMMO",
+  "description": "ROYAL IMMO — L'immobilier en toute confiance. Portail immobilier professionnel et premium en Côte d'Ivoire : achat, location, terrains, agences vérifiées et gestion immobilière.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

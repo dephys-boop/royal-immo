@@ -1,0 +1,41 @@
+import * as React from 'react';
+import { cva, type VariantProps } from 'class-variance-authority';
+import { cn } from '../../utils/cn';
+
+const buttonVariants = cva(
+  'inline-flex items-center justify-center gap-2 whitespace-nowrap shrink-0 rounded-lg text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C89B3C] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer',
+  {
+    variants: {
+      variant: {
+        default: 'bg-[#1B3B8C] text-white hover:bg-[#142D6B] shadow-sm dark:bg-[#2550B8] dark:hover:bg-[#1B3B8C]',
+        gold: 'bg-[#C89B3C] text-[#0B1633] hover:bg-[#B5892E] shadow-sm font-semibold',
+        midnight: 'bg-[#0B1633] text-white hover:bg-[#162752] dark:bg-white dark:text-[#0B1633] dark:hover:bg-slate-200',
+        outline:
+          'border border-slate-300 bg-white text-slate-900 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800',
+        ghost: 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800',
+        destructive: 'bg-red-600 text-white hover:bg-red-700',
+      },
+      size: {
+        default: 'h-10 px-5 py-2',
+        sm: 'h-9 px-3.5 text-xs',
+        lg: 'h-12 px-6 text-base',
+        icon: 'h-10 w-10',
+      },
+    },
+    defaultVariants: {
+      variant: 'default',
+      size: 'default',
+    },
+  }
+);
+
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {}
+
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, ...props }, ref) => (
+    <button ref={ref} className={cn(buttonVariants({ variant, size, className }))} {...props} />
+  )
+);
+Button.displayName = 'Button';

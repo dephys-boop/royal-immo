@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /espace-particulier
+Disallow: /espace-agence
+Disallow: /administration
+
+Sitemap: /sitemap.xml
